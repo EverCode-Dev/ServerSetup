@@ -1,4 +1,7 @@
+# Import the run_command function.
 from evercode_os import run_command
+
+# Import chdir from os to change the CWD.
 from os import chdir
 
 # Move the CWD into the EverCode Setup directory.
