@@ -11,7 +11,7 @@ def print_message(message):
     timestamp = "{:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now())
     
     # Log the message.
-    print("%s: %s" % timestamp, message)
+    print("%s: %s" % (timestamp, message))
 
 # Displays a message stating what is about to be done.
 # Runs a system command within a try except environment.
