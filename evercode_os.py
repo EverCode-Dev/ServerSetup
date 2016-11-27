@@ -16,5 +16,5 @@ def run_command(task_message, command):
         
     if return_value == 0:
         print("Completed successfully")
-    else
+    else:
         print("Completed with errors")
