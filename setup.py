@@ -1,7 +1,8 @@
 from evercode_os import run_command
+from os import chdir
 
 # Move the CWD into the EverCode Setup directory.
-os.chdir("/root/evercode-setup")
+chdir("/root/evercode-setup")
 
 # Store the setup version number.
 setup_version_number = "1.0.1"
