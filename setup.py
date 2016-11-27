@@ -8,7 +8,10 @@ from os import chdir
 chdir("/root/evercode-setup")
 
 # Store the setup version number.
-setup_version_number = "1.0.1"
+setup_version_number = sys.argv[1]
+
+# Start the setup.
+print("Running EverCode Server Setup version %s" % setup_version_number)
 
 # Save the version number to root.
 run_command("Saving version number...", "echo 'EverCode Server from version %s' > /evercode.version" % setup_version_number)
