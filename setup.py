@@ -1,13 +1,10 @@
-# Import the OS module.
-import os
+from evercode_os import run_command
 
 # Store the setup version number.
 setup_version_number = "1.0.1"
 
 # Begin by writing some version information to file.
-print("Saving version number.")
-os.system("echo 'EverCode Server from version 1.0.1' > /evercode.version")
+run_command("Saving version number", "echo 'EverCode Server from version %s' > /evercode.version" % setup_version_number)
 
 # Set execute rights on any shell scripts in the folder.
-print("Setting execute rights on shell scripts.")
-os.system("chmod +x *.sh")
+run_command("Setting execute rights on shell scripts", "chmod u+x *.sh")

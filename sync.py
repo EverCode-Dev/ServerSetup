@@ -1,12 +1,4 @@
-import os
+from evercode_os import run_command
 
 # Synchronise with GitHub.
-print("Synchronising with GitHub...")
-
-try:
-    os.system("git pull")
-
-except:
-    print("Unknown error occured: %s" % sys.exc_info()[0])
-    
-print("Synchronised!")
+run_command("Synchronising with GitHub", "git pull")
