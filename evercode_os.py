@@ -31,6 +31,6 @@ def run_command(task_message, command, optional_follow_up_command = ""):
             os.system(optional_follow_up_command)
         else:
             print_message("Completed successfully.")
-        print()
+        print("")
     else:
         print_message("Completed with errors.")
