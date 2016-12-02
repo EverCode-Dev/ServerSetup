@@ -29,7 +29,7 @@ run_command("Adding git-sync alias...", "echo alias git-sync='git-sync.sh' > /ro
 run_command("Adding evercode-setup to PATH...", "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile")
 
 # Updating bash session commands.
-run_command("Reloading bash session commands...", "source ~/.bashrc")
+run_command("Reloading bash session commands...", "source /root/.bashrc")
 
 # Add a symlink to "/var/www/html".
 run_command("Adding symlink to public web folder...", "ln -s /var/www/html /root/html")
