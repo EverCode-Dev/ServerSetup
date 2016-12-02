@@ -16,7 +16,7 @@ def print_message(message):
 # Displays a message stating what is about to be done.
 # Runs a system command within a try except environment.
 # Either logs any errors that occurred or displays a completion message.
-def run_command(task_message, command):
+def run_command(task_message, command, optional_follow_up_command = ""):
     
     print_message(task_message)
     
@@ -27,7 +27,10 @@ def run_command(task_message, command):
         print_message("Unknown error occured: %s" % sys.exc_info()[0])
         
     if return_value == 0:
-        print_message("Completed successfully.")
+        if optional_follow_up_command != "":
+            os.system(optional_follow_up_command)
+        else:
+            print_message("Completed successfully.")
         print()
     else:
         print_message("Completed with errors.")

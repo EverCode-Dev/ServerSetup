@@ -17,16 +17,16 @@ setup_version_number = sys.argv[1]
 print("Running EverCode Server Setup version %s" % setup_version_number)
 
 # Save the version number to root.
-run_command("Saving version number...", "echo 'EverCode Server from version %s' > /evercode.version" % setup_version_number)
+run_command("Saving version number...", "echo 'EverCode Server from version %s' > /evercode.version" % setup_version_number, "cat /evercode.version")
 
 # Set execute rights on shell scripts.
 run_command("Setting execute rights on shell scripts...", "chmod u+x *.sh")
 
 # Set an alias to run git-sync.sh.
-run_command("Adding git-sync alias...", "echo alias git-sync='git-sync.sh' > /root/.bash_aliases")
+run_command("Adding git-sync alias...", "echo alias git-sync='git-sync.sh' > /root/.bash_aliases", "cat /root/.bash_aliases")
 
 # Add evercode-setup directory to PATH variable.
-run_command("Adding evercode-setup to PATH...", "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile")
+run_command("Adding evercode-setup to PATH...", "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", "cat /root/.bash_profile")
 
 # Updating bash session commands.
 run_command("Reloading bash session commands...", "source /root/.bashrc")
