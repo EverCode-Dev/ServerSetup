@@ -23,10 +23,10 @@ run_command("Saving version number...", "echo 'EverCode Server from version %s' 
 run_command("Setting execute rights on shell scripts...", "chmod u+x *.sh")
 
 # Set an alias to run git-sync.sh.
-run_command("Adding git-sync alias...", "echo alias git-sync='git-sync.sh' > ~/.bash_aliases")
+run_command("Adding git-sync alias...", "echo alias git-sync='git-sync.sh' > /root/.bash_aliases")
 
 # Add evercode-setup directory to PATH variable.
-run_command("Adding evercode-setup to PATH...", "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' .bash_profile")
+run_command("Adding evercode-setup to PATH...", "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile")
 
 # Updating bash session commands.
 run_command("Reloading bash session commands...", "source ~/.bashrc")
