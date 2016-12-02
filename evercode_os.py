@@ -28,5 +28,6 @@ def run_command(task_message, command):
         
     if return_value == 0:
         print_message("Completed successfully.")
+        print()
     else:
         print_message("Completed with errors.")
