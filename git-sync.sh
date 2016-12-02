@@ -1,2 +1,2 @@
 #!/bin/sh
-python /root/evercode-setup/sync.py
+python /root/evercode-setup/git-sync.py
