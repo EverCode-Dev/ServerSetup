@@ -33,3 +33,6 @@ run_command("Reloading bash session commands...", "source /root/.bashrc")
 
 # Add a symlink to "/var/www/html".
 run_command("Adding symlink to public web folder...", "ln -s /var/www/html /root/html")
+
+# Setup ProFTPD.
+run_command("Setting up ProFTPD...", "useradd evercodeftp -M -s /sbin/nologin -d /var/www/html && passwd evercodeftp && usermod -a -G evercode evercodeftp && rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm && yum -y install proftpd && yum -y install ftp && sed -i 's/^\( *Umask.*\)[0-9]\{3,4\}$/\1022/' /etc/proftpd.conf && setsebool -P ftp_home_dir on && service proftpd start")
