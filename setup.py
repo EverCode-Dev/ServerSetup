@@ -72,7 +72,7 @@ run_command(
 # Add evercode-setup directory to PATH variable.
 run_command(
     "Adding evercode-setup to PATH...", 
-    r"echo sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
+    r"sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
     "cat /root/.bash_profile"
 )
 
