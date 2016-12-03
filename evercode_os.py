@@ -31,6 +31,9 @@ def run_command(task_message, command, optional_follow_up_command = ""):
             os.system(optional_follow_up_command)
         else:
             print_message("Completed successfully.")
-        print("")
     else:
         print_message("Completed with errors.")
+        
+# TESTING
+if __name__ == "__main__":
+    run_command("Testing character escaping:", "echo \"'test'\"")
