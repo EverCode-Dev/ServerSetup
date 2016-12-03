@@ -42,7 +42,7 @@ print("Running EverCode Server Setup version %s" % setup_version_number)
 # Save the version number to root.
 run_command(
     "Saving version number...", 
-    "echo 'EverCode Server from setup script version %s' > /evercode.version" % setup_version_number, 
+    r"echo 'EverCode Server from setup script version %s' > /evercode.version" % setup_version_number, 
     "cat /evercode.version"
 )
 
@@ -50,8 +50,8 @@ run_command(
 run_command(
     "Setting Git config options...",
     " && ".join([
-        "git config --global user.name 'EverCode'"
-        "git config --global user.email 'git@evercode.co'"
+        r"git config --global user.name 'EverCode'"
+        r"git config --global user.email 'git@evercode.co'"
         "git config --global color.ui auto"
     ])
 )
@@ -65,14 +65,14 @@ run_command(
 # Set an alias to run git-sync.sh.
 run_command(
     "Adding git-sync alias...", 
-    "echo alias git-sync='git-sync.sh' > /root/.bash_aliases", 
+    r"echo alias git-sync='git-sync.sh' > /root/.bash_aliases", 
     "cat /root/.bash_aliases"
 )
 
 # Add evercode-setup directory to PATH variable.
 run_command(
     "Adding evercode-setup to PATH...", 
-    "echo sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
+    r"echo sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
     "cat /root/.bash_profile"
 )
 
@@ -104,7 +104,7 @@ run_command(
         "rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm", 
         "yum -y install proftpd", 
         "yum -y install ftp", 
-        "sed -i 's/^\( *Umask.*\)[0-9]\{3,4\}$/\1022/' /etc/proftpd.conf", 
+        r"sed -i 's/^\( *Umask.*\)[0-9]\{3,4\}$/\1022/' /etc/proftpd.conf", 
         "setsebool -P ftp_home_dir on", 
         "service proftpd start"
     ])
