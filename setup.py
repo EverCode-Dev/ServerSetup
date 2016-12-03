@@ -35,7 +35,7 @@ with open(setup_config_file_name, "r") as setup_config_file:
             key   = config_line[0]
             value = config_line[1]
         
-            config_dictionary[key] = value
+            config_dictionary[key] = value.strip()
 
 def get_dictionary_value(key):
     if key in config_dictionary:
