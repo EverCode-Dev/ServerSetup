@@ -7,8 +7,15 @@ from os import chdir
 # Import the sys module to get arguments.
 import sys
 
+# Get the script name.
+local_script_name = sys.argv[0]
+
 # Output the script name.
-print(sys.argv[0])
+print("Running from: '%s'" % local_script_name)
+
+# Set the local directory to the script folder.
+local_script_directory = local_script_name.replace("setup.py", "")
+os.chdir(local_script_directory)
 
 # Get the name of the config file we will use to setup this server.
 print("Reading config file...")
