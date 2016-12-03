@@ -15,7 +15,7 @@ print("Running from: '%s'" % local_script_name)
 
 # Set the local directory to the script folder.
 local_script_directory = local_script_name.replace("setup.py", "")
-os.chdir(local_script_directory)
+chdir(local_script_directory)
 
 # Get the name of the config file we will use to setup this server.
 print("Reading config file...")
