@@ -62,7 +62,7 @@ run_command(
 # Add evercode-setup directory to PATH variable.
 run_command(
     "Adding evercode-setup to PATH...", 
-    "sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
+    "echo sed -i 's/\(PATH=.*\)/\1:\/root\/evercode-setup/' /root/.bash_profile", 
     "cat /root/.bash_profile"
 )
 
@@ -87,7 +87,7 @@ run_command(
 # Setup ProFTPD.
 run_command(
     "Setting up ProFTPD...", 
-    " && ".join(
+    " && ".join([
         "useradd evercodeftp -M -s /sbin/nologin -d /var/www/html",
         "echo " + ftp_html_password + " | passwd evercodeftp --stdin", 
         "usermod -a -G evercode evercodeftp", 
@@ -97,5 +97,5 @@ run_command(
         "sed -i 's/^\( *Umask.*\)[0-9]\{3,4\}$/\1022/' /etc/proftpd.conf", 
         "setsebool -P ftp_home_dir on", 
         "service proftpd start"
-    )
+    ])
 )
