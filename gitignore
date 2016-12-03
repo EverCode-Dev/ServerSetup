@@ -3,3 +3,6 @@ setup.config
 
 # Ignore compiled Python files.
 *.pyc
+
+# Ignore the push script - contains usernames and passwords.
+push.sh
