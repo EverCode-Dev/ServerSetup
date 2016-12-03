@@ -21,16 +21,35 @@ setup_config_file_name = sys.argv[1]
 evercode_os.print_message("Using '%s' for setup configuration." % setup_config_file_name)
 
 # Open the config file and read the contents.
-try:
-    setup_config_file = open(setup_config_file_name, "r")
-except:
+if not os.path.exists(setup_config_file_name):
     evercode_os.print_message("Could not open file '%s', stopping." % setup_config_file_name)
     sys.exit()
 
+# Build a dictionary of values from the config file.
+config_dictionary = {}
+with open(setup_config_file_name, "r") as setup_config_file:
+    for config_line in setup_config_file:
+        config_line = config_line.split(":")
+        
+        if len(config_line) > 1:
+            key   = config_line[0]
+            value = config_line[1]
+        
+            config_dictionary[key] = value
+
+def get_dictionary_value(key):
+    if key in config_dictionary:
+        return config_dictionary[key]
+    else:
+        evercode_os.print_message("Could not find key '%s' in config, stopping." % key)
+        sys.exit()
+        
 # Store the config variables.
-setup_version_number = setup_config_file.readline().strip()
-ftp_html_password    = setup_config_file.readline().strip()
-ftp_git_password     = setup_config_file.readline().strip()
+setup_version_number = get_dictionary_value("setup_version_number")
+ftp_html_password    = get_dictionary_value("ftp_html_password")
+ftp_git_password     = get_dictionary_value("ftp_git_password")
+git_push_username    = get_dictionary_value("git_push_username")
+git_push_password    = get_dictionary_value("git_push_password")
 
 # Close the file.
 setup_config_file.close()
@@ -53,6 +72,14 @@ evercode_os.run_command(
         "git config --global color.ui auto"
     ])
 )
+
+# Create push script.
+evercode_os.print_message("Creating Git push script...")
+git_push_script = open("push.sh", "w")
+git_push_script.write("#!/bin/sh\n\n")
+git_push_script.write("git push https://%s:%s@github.com/EverCode-Dev/ServerSetup.git\n" % (git_push_username, git_push_password))
+git_push_script.close()
+evercode_os.print_message("Completed.")
 
 '''# Set execute rights on shell scripts.
 run_command(
