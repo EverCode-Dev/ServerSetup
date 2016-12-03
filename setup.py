@@ -29,9 +29,9 @@ setup_config_file_name = sys.argv[1]
 setup_config_file = open(setup_config_file_name, "r")
 
 # Store the config variables.
-setup_version_number = setup_config_file.readline()
-ftp_html_password    = setup_config_file.readline()
-ftp_git_password     = setup_config_file.readline()
+setup_version_number = setup_config_file.readline().strip()
+ftp_html_password    = setup_config_file.readline().strip()
+ftp_git_password     = setup_config_file.readline().strip()
 
 # Close the file.
 setup_config_file.close()
