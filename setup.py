@@ -56,7 +56,7 @@ run_command(
     ])
 )
 
-# Set execute rights on shell scripts.
+'''# Set execute rights on shell scripts.
 run_command(
     "Setting execute rights on shell scripts...", 
     "chmod u+x *.sh"
@@ -80,7 +80,7 @@ run_command(
 run_command(
     "Reloading bash session commands...",
     "source /root/.bashrc"
-)
+)'''
 
 # Add a symlink to "/var/www/html".
 run_command(
