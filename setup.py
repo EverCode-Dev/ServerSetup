@@ -46,6 +46,16 @@ run_command(
     "cat /evercode.version"
 )
 
+# Set up Git options.
+run_command(
+    "Setting Git config options...",
+    " && ".join([
+        "git config --global user.name 'EverCode'"
+        "git config --global user.email 'git@evercode.co'"
+        "git config --global color.ui auto"
+    ])
+)
+
 # Set execute rights on shell scripts.
 run_command(
     "Setting execute rights on shell scripts...", 
