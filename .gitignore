@@ -1,2 +1,5 @@
+# Ignore the setup config file.
 setup.config
+
+# Ignore compiled Python files.
 *.pyc
